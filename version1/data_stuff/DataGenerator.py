@@ -142,7 +142,8 @@ def generateData(numb):
     data = [age, budget, season, destination]
     row.append(data)
 
-
+#6000 samples are a good number for RandomForestClassifier to work with.
+#But Neural Networks seems to work better with 500K data, and overfits with 5M.
 for i in range(6000):
     k = random.randint(1, 20)
     generateData(k)
