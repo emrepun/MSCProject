@@ -35,18 +35,26 @@ Widget _myListView(BuildContext context) {
     new Option("third", "thirdImage", "third keywords")
   ];
 
-  return ListView.builder(
-    itemCount: options.length,
-    itemBuilder: (context, index) {
-      return Card(
-        elevation: 2.0, //gives some kind of shadow at the end.
-        margin: EdgeInsets.all(20.0),
-        child: ListTile(
-          //leading: Icon(icons[index]),
-          title: Text(options[index].title),
-        ),
-      );
-    },
+
+  return Center(
+    child: ListView.builder(
+        itemCount: options.length,
+
+        itemBuilder: (context, i) {
+          return Card(
+            elevation: 2.0,
+            margin: EdgeInsets.all(16.0),
+            child: FlatButton(
+              padding: EdgeInsets.all(0.0),
+              child: Column(
+
+              ),
+              onPressed: () {
+                //TODO: Implement request.
+              },
+            ),
+          );
+        }),
   );
 }
 
