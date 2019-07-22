@@ -30,9 +30,9 @@ class MyHomePage extends StatelessWidget {
 Widget _myListView(BuildContext context) {
 
   final options = [
-    new Option("first", "firstImage", "first keywords"),
-    new Option("second", "secondImage", "second keywords"),
-    new Option("third", "thirdImage", "third keywords")
+    new Option("first", "assets/images/culture_history_art.jpg", "first keywords"),
+    new Option("second", "assets/images/beach_summer.jpg", "second keywords"),
+    new Option("third", "assets/images/nightlife_fun_party.jpg", "third keywords")
   ];
 
 
@@ -47,7 +47,23 @@ Widget _myListView(BuildContext context) {
             child: FlatButton(
               padding: EdgeInsets.all(0.0),
               child: Column(
-
+                children: <Widget>[
+                  new Container(
+                    padding: EdgeInsets.all(2.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Image.asset(options[i].imageName),
+                        Container(height: 8.0,),
+                        Text(options[i].title,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold
+                          ),)
+                      ],
+                    ),
+                  )
+                ],
               ),
               onPressed: () {
                 //TODO: Implement request.
