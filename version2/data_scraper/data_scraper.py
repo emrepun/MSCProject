@@ -31,3 +31,25 @@ for i in argumentArray:
 
     print(title[0].text)
     print(popularityElement[0].text)
+
+    if not title:
+        continue
+
+    title[0].click()
+    sleep(2)
+
+    root_window = browser.window_handles[0]
+    opened_window = browser.window_handles[1]
+
+    browser.switch_to.window(opened_window)
+    sleep(5)
+
+    description = browser.find_elements_by_xpath("//div[@class='common-text-ReadMore__content--2X4LR']")
+    imgElement = browser.find_elements_by_xpath("//img[@class='home_img']")
+
+    print(description[0].text)
+    print(imgElement[0].text)
+
+    browser.close()
+    sleep(2)
+    browser.switch_to.window(root_window)    
