@@ -10,10 +10,15 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Travel App',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.cyan,
       ),
       home: Scaffold(
-        appBar: AppBar(title: Text('Travel Recommender')),
+        appBar: AppBar(
+            title: Text('Travel Recommender',
+              style: TextStyle(
+                color: Colors.white),
+            )
+        ),
         body: MyHomePage(),
       ),
     );
@@ -30,47 +35,64 @@ class MyHomePage extends StatelessWidget {
 Widget _myListView(BuildContext context) {
 
   final options = [
-    new Option("first", "assets/images/culture_history_art.jpg", "first keywords"),
-    new Option("second", "assets/images/beach_summer.jpg", "second keywords"),
-    new Option("third", "assets/images/nightlife_fun_party.jpg", "third keywords")
+    new Option("Culture, Art and History.",
+        "assets/images/culture_history_art.jpg",
+        "first keywords"),
+    new Option("Summer Vacation",
+        "assets/images/beach_summer.jpg",
+        "second keywords"),
+    new Option("Good Restaurants and Nightlife.",
+        "assets/images/nightlife_fun_party.jpg",
+        "third keywords")
   ];
 
+  return Column(
+    children: <Widget>[
+      Container(height: 8.0,),
+      Text("Please let us know which one is more important for an ideal trip",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 20.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.cyan
+        ),),
+      Expanded(
+        child: ListView.builder(
+            itemCount: options.length,
 
-  return Center(
-    child: ListView.builder(
-        itemCount: options.length,
-
-        itemBuilder: (context, i) {
-          return Card(
-            elevation: 2.0,
-            margin: EdgeInsets.all(16.0),
-            child: FlatButton(
-              padding: EdgeInsets.all(0.0),
-              child: Column(
-                children: <Widget>[
-                  new Container(
-                    padding: EdgeInsets.all(2.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Image.asset(options[i].imageName),
-                        Container(height: 8.0,),
-                        Text(options[i].title,
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.bold
-                          ),)
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              onPressed: () {
-                //TODO: Implement request.
-              },
-            ),
-          );
-        }),
+            itemBuilder: (context, i) {
+              return Card(
+                elevation: 2.0,
+                margin: EdgeInsets.all(16.0),
+                child: FlatButton(
+                  padding: EdgeInsets.all(0.0),
+                  child: Column(
+                    children: <Widget>[
+                      new Container(
+                        padding: EdgeInsets.all(2.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Image.asset(options[i].imageName),
+                            Container(height: 8.0,),
+                            Text(options[i].title,
+                              style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.bold
+                              ),)
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                  onPressed: () {
+                    //TODO: Implement request.
+                  },
+                ),
+              );
+            }),
+      )
+    ],
   );
 }
 
