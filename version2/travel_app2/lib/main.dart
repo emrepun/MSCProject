@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'option.dart';
 import 'views/option_cell.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'city.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,6 +50,30 @@ Widget _myListView(BuildContext context) {
         "nightclub nightclubs nightlife bar bars pub pubs party beer")
   ];
 
+  void postOption({Map body}) async {
+    final url = 'http://localhost:5000/api';
+    HttpClient httpClient = new HttpClient();
+    HttpClientRequest request = await httpClient.postUrl(Uri.parse(url));
+    request.add(utf8.encode(json.encode(body)));
+    HttpClientResponse response = await request.close();
+
+    String reply = await response.transform(utf8.decoder).join();
+
+    final cities = (json.decode(reply) as List).map((i) {
+      final title = i['city'];
+      final description = i['description'];
+      final popularity = i['popularity'];
+      final imageUrl = i['image'];
+
+      return new City(title, description, popularity, imageUrl);
+    }).toList();
+
+    print(cities[0]);
+
+    //TODO: Implement Navigation to City Result page.
+
+  }
+
   return Column(
     children: <Widget>[
       Container(height: 8.0,),
@@ -70,6 +97,8 @@ Widget _myListView(BuildContext context) {
                   child: OptionCell(options[i]),
                   onPressed: () {
                     //TODO: Implement request.
+                    final body = options[i].optionToJson(true);
+                    postOption(body: body);
                   },
                 ),
               );
