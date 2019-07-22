@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'option.dart';
+import 'views/option_cell.dart';
 
 void main() => runApp(MyApp());
 
@@ -66,25 +67,7 @@ Widget _myListView(BuildContext context) {
                 margin: EdgeInsets.all(16.0),
                 child: FlatButton(
                   padding: EdgeInsets.all(0.0),
-                  child: Column(
-                    children: <Widget>[
-                      new Container(
-                        padding: EdgeInsets.all(2.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Image.asset(options[i].imageName),
-                            Container(height: 8.0,),
-                            Text(options[i].title,
-                              style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold
-                              ),)
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                  child: OptionCell(options[i]),
                   onPressed: () {
                     //TODO: Implement request.
                   },
