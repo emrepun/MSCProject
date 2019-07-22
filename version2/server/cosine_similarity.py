@@ -1,9 +1,11 @@
-
+import re, math
+from collections import Counter
 
 class CosineSimilarity:
     def __init__(self):
         print("initialized")
 
+    @staticmethod
     def remove_ignored_words(vector):
         ignored_words = ['the', 'and', 'of', 'you', 'for', 'in', 'it', 'a', 'or', 'is']
 
@@ -22,8 +24,8 @@ class CosineSimilarity:
         vector2 = Counter(second)
 
         #remove unnecessary words.
-        remove_ignored_words(vector1)
-        remove_ignored_words(vector2)
+        CosineSimilarity.remove_ignored_words(vector1)
+        CosineSimilarity.remove_ignored_words(vector2)
 
         #convert vectors to set to find common words as intersection
         common = set(vector1.keys()).intersection(set(vector2.keys()))
