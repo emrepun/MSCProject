@@ -38,13 +38,13 @@ Widget _myListView(BuildContext context) {
   final options = [
     new Option("Culture, Art and History.",
         "assets/images/culture_history_art.jpg",
-        "first keywords"),
+        "history historical art architecture city culture"),
     new Option("Summer Vacation",
         "assets/images/beach_summer.jpg",
-        "second keywords"),
+        "beach beaches park nature holiday sea seaside sand sunshine sun sunny"),
     new Option("Good Restaurants and Nightlife.",
         "assets/images/nightlife_fun_party.jpg",
-        "third keywords")
+        "nightclub nightclubs nightlife bar bars pub pubs party beer")
   ];
 
   return Column(
