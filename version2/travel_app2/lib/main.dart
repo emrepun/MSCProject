@@ -96,7 +96,6 @@ Widget _myListView(BuildContext context) {
                   padding: EdgeInsets.all(0.0),
                   child: OptionCell(options[i]),
                   onPressed: () {
-                    //TODO: Implement request.
                     final body = options[i].optionToJson(true);
                     postOption(body: body);
                   },
