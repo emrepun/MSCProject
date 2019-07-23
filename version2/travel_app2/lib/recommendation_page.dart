@@ -10,10 +10,14 @@ class RecommendationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.cyan,
-        title: Text('Recommendations based on your preferences'),
+        title: Text('Recommended Destinations',
+          style: TextStyle(
+            color: Colors.white,
+            //fontSize: 20.0
+          ) ,),
       ),
       body: Text('Sample'),
     );

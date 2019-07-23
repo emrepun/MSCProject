@@ -4,6 +4,7 @@ import 'views/option_cell.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'city.dart';
+import 'recommendation_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -72,6 +73,11 @@ Widget _myListView(BuildContext context) {
 
     //TODO: Implement Navigation to City Result page.
 
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) {
+        return RecommendationPage(cities);
+      })
+    );
   }
 
   return Column(
