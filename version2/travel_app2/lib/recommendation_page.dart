@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'views/city_cell.dart';
 
 class RecommendationPage extends StatelessWidget {
 
@@ -19,7 +20,21 @@ class RecommendationPage extends StatelessWidget {
             //fontSize: 20.0
           ) ,),
       ),
-      body: Text('Sample'),
+      body: ListView.builder(
+          itemCount: cities.length,
+          itemBuilder: (context, i) {
+            return Card(
+              elevation: 2.0,
+              margin: EdgeInsets.all(16.0),
+              child: FlatButton(
+                padding: EdgeInsets.all(0.0),
+                child: CityCell(cities[i]),
+                onPressed: () {
+                  //TODO: Implement selection of the recommended city.
+                },
+              ),
+            );
+          })
     );
   }
 }

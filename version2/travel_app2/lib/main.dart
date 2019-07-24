@@ -43,7 +43,7 @@ Widget _myListView(BuildContext context) {
     new Option("Culture, Art and History.",
         "assets/images/culture_history_art.jpg",
         "history historical art architecture city culture"),
-    new Option("Summer Vacation",
+    new Option("Beach and Sun",
         "assets/images/beach_summer.jpg",
         "beach beaches park nature holiday sea seaside sand sunshine sun sunny"),
     new Option("Good Restaurants and Nightlife.",
@@ -70,8 +70,6 @@ Widget _myListView(BuildContext context) {
     }).toList();
 
     print(cities[0]);
-
-    //TODO: Implement Navigation to City Result page.
 
     Navigator.of(context).push(
       MaterialPageRoute(builder: (context) {
