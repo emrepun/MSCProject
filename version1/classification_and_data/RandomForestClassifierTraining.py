@@ -22,21 +22,24 @@ model.fit(Xtrain, ytrain)
 import pickle
 pickle.dump(model, open('randomForestModel.pkl','wb'))
 
-print('Score: ', model.score(Xtest, ytest))
+#print('Score: ', model.score(Xtest, ytest))
+document = open("random_forest_results.doc", "a+")
+document.write("Score: " + str(model.score(Xtest, ytest)) + "\r\n")
+document.close()
 
-preds = model.predict(Xtest)
+#preds = model.predict(Xtest)
 #dog = model.predict([24,2200,0])
-print(Xtest.shape)
-print(type(Xtest))
+# print(Xtest.shape)
+# print(type(Xtest))
 #print(Xtest)
 #print(preds.shape)
 #print(preds)
-dog = model.predict(Xtest[10:11])
-#big = [['age', 'budge', 'season'], [50, 4767, 1]]
-a = [25, 4767, 1]
-big = pd.DataFrame([a], columns=['age', 'budget', 'season'])
-print(Xtest[10:11])
-dog2 = model.predict(big)
-print(big)
-print(dog)
-print(dog2)
+# dog = model.predict(Xtest[10:11])
+# #big = [['age', 'budge', 'season'], [50, 4767, 1]]
+# a = [25, 4767, 1]
+# big = pd.DataFrame([a], columns=['age', 'budget', 'season'])
+# print(Xtest[10:11])
+# dog2 = model.predict(big)
+# print(big)
+# print(dog)
+# print(dog2)

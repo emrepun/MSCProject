@@ -1,5 +1,6 @@
 import csv
 import random
+import sys
 
 # CITIES
 #   0 = Istanbul
@@ -21,6 +22,12 @@ import random
 #   1 = autumn
 #   2 = winter
 #   3 = summer
+
+sample_count = 1
+
+#update sample count with passed argument.
+if len(sys.argv) == 2:
+     sample_count = int(sys.argv[1])
 
 row = [['age', 'budget', 'season', 'destination']]
 
@@ -144,7 +151,7 @@ def generateData(numb):
 
 #6000 samples are a good number for RandomForestClassifier to work with.
 #But Neural Networks seems to work better with 500K data, and overfits with 5M.
-for i in range(6000):
+for i in range(sample_count):
     k = random.randint(1, 20)
     generateData(k)
 
