@@ -45,3 +45,7 @@ model.fit(Xtrain, ytrain, epochs=10)
 test_loss, test_acc = model.evaluate(Xtest, ytest)
 
 print('\nTest accuracy:', test_acc)
+
+document = open("neural_networks_results.doc", "a+")
+document.write("Accuracy: " + str(test_acc) + "\r\n")
+document.close()
