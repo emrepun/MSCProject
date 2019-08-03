@@ -11,7 +11,8 @@ from tensorflow.keras import layers
 from sklearn.model_selection import train_test_split
 
 #run DataGenerator.py first if the file is missing.
-data = pd.read_csv('myDataNumericRandomized.csv')
+#data = pd.read_csv('myDataNumericRandomized.csv')
+data = pd.read_csv('normalDistributionData.csv')
 
 X = data.drop('destination', axis=1)
 y = data['destination']
@@ -46,6 +47,7 @@ test_loss, test_acc = model.evaluate(Xtest, ytest)
 
 print('\nTest accuracy:', test_acc)
 
-document = open("neural_networks_results.doc", "a+")
+#document = open("neural_networks_results.doc", "a+")
+document = open("normal_distribution_neural_networks_results.doc", "a+")
 document.write("Accuracy: " + str(test_acc) + "\r\n")
 document.close()

@@ -8,7 +8,8 @@ do
   python3 header_neural_networks.py $sample_count
   for i in {1..10}
   do
-    python3 DataGenerator.py $sample_count
+    #python3 DataGenerator.py $sample_count
+    python3 NormalDistributionGenerator.py $sample_count
     python3 TensorflowKerasClassifier.py
   done
 
