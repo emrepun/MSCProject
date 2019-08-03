@@ -3,6 +3,7 @@ import random
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import sys
 
 # CITIES
 #   0 = Istanbul
@@ -49,6 +50,12 @@ vrb = 8
 vgl = 9
 bng = 10
 sao = 11
+
+sample_count = 1
+
+#update sample count with passed argument.
+if len(sys.argv) == 2:
+     sample_count = int(sys.argv[1])
 
 #generator applies 68-95-99 rule.
 def generate_data(n):
@@ -165,7 +172,7 @@ def generate_data(n):
         row.append(data)
 
 
-generate_data(6000)
+generate_data(sample_count)
 
 with open('normalDistributionData.csv', 'w') as csvFile:
     writer = csv.writer(csvFile)

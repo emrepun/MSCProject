@@ -7,7 +7,8 @@ do
   python3 header.py $sample_count
   for j in {1..10}
   do
-    python3 DataGenerator.py $sample_count
+    #python3 DataGenerator.py $sample_count
+    python3 NormalDistributionGenerator.py $sample_count
     python3 RandomForestClassifierTraining.py
   done
   #sample_count=$sample_count*10

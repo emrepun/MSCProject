@@ -2,7 +2,9 @@ import numpy as np
 import pandas as pd
 
 #run DataGenerator.py first if the file is missing.
-data = pd.read_csv('myDataNumericRandomized.csv')
+
+#data = pd.read_csv('myDataNumericRandomized.csv')
+data = pd.read_csv('normalDistributionData.csv')
 
 X = data.drop('destination', axis=1)
 y = data['destination']
@@ -23,7 +25,9 @@ import pickle
 pickle.dump(model, open('randomForestModel.pkl','wb'))
 
 #print('Score: ', model.score(Xtest, ytest))
-document = open("random_forest_results.doc", "a+")
+
+#document = open("random_forest_results.doc", "a+")
+document = open("normal_distribution_random_forest_results.doc", "a+")
 document.write("Score: " + str(model.score(Xtest, ytest)) + "\r\n")
 document.close()
 
