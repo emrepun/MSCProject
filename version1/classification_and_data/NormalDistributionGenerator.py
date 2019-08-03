@@ -60,72 +60,72 @@ if len(sys.argv) == 2:
 #generator applies 68-95-99 rule.
 def generate_data(n):
     for i in range(int(n*0.22)):
-        age = random.randint(18, 40) #young category
-        budget = random.randint(2501, 5000) #rich category
+        age = random.randint(18, 41) #young category
+        budget = random.randint(2450, 5000) #rich category
         season = 2 #winter
         destination = vrb
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.22)):
-        age = random.randint(40, 65) #old category
-        budget = random.randint(2501, 5000) #rich category
+        age = random.randint(39, 65) #old category
+        budget = random.randint(2450, 5000) #rich category
         season = 3 #summer
         destination = dbr
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.12)):
-        age = random.randint(18, 40) #young category
-        budget = random.randint(500, 2500) #poor category
+        age = random.randint(18, 41) #young category
+        budget = random.randint(500, 2550) #poor category
         season = 2 #winter
         destination = vgl
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.12)):
-        age = random.randint(18, 40) #old category
-        budget = random.randint(500, 2500) #poor category
+        age = random.randint(18, 41) #old category
+        budget = random.randint(500, 2550) #poor category
         season = 3 #summer
         destination = hvr
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.055)):
-        age = random.randint(40, 65) #old category
-        budget = random.randint(2501, 5000) #rich category
+        age = random.randint(39, 65) #old category
+        budget = random.randint(2450, 5000) #rich category
         season = 2 #winter
         destination = bng
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.055)):
-        age = random.randint(18, 40) #young category
-        budget = random.randint(2501, 5000) #rich category
+        age = random.randint(18, 41) #young category
+        budget = random.randint(2450, 5000) #rich category
         season = 3 #summer
         destination = ibz
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.045)):
-        age = random.randint(40, 65) #old category
-        budget = random.randint(500, 2501) #poor category
+        age = random.randint(39, 65) #old category
+        budget = random.randint(500, 2550) #poor category
         season = 2 #winter
         destination = sao
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.045)):
-        age = random.randint(40, 65) #old category
-        budget = random.randint(500, 2501) #rich category
+        age = random.randint(39, 65) #old category
+        budget = random.randint(500, 2550) #rich category
         season = 3 #summer
         destination = ant
         data = [age, budget, season, destination]
         row.append(data)
 
     for i in range(int(n*0.035)):
-        age = random.randint(18, 40) #young category
-        budget = random.randint(2501, 5000) #rich category
+        age = random.randint(18, 41) #young category
+        budget = random.randint(2450, 5000) #rich category
         season_rand = random.randint(0, 100)
         if season_rand > 50:
             season = 0
@@ -136,8 +136,8 @@ def generate_data(n):
         row.append(data)
 
     for i in range(int(n*0.035)):
-        age = random.randint(40, 65) #old category
-        budget = random.randint(2501, 5000) #rich category
+        age = random.randint(39, 65) #old category
+        budget = random.randint(2450, 5000) #rich category
         season_rand = random.randint(0, 100)
         if season_rand > 50:
             season = 0
@@ -148,8 +148,8 @@ def generate_data(n):
         row.append(data)
 
     for i in range(int(n*0.023)):
-        age = random.randint(40, 65) #old category
-        budget = random.randint(500, 2500) #poor category
+        age = random.randint(39, 65) #old category
+        budget = random.randint(500, 2550) #poor category
         season_rand = random.randint(0, 100)
         if season_rand > 50:
             season = 0
@@ -160,8 +160,8 @@ def generate_data(n):
         row.append(data)
 
     for i in range(int(n*0.023)):
-        age = random.randint(18, 40) #young category
-        budget = random.randint(500, 2500) #poor category
+        age = random.randint(18, 41) #young category
+        budget = random.randint(500, 2550) #poor category
         season_rand = random.randint(0, 100)
         if season_rand > 50:
             season = 0
