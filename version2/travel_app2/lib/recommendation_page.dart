@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'views/city_cell.dart';
+import 'destination_page.dart';
 
 class RecommendationPage extends StatelessWidget {
 
@@ -30,7 +31,11 @@ class RecommendationPage extends StatelessWidget {
                 padding: EdgeInsets.all(0.0),
                 child: CityCell(cities[i]),
                 onPressed: () {
-                  //TODO: Implement selection of the recommended city.
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) {
+                        return DestinationPage(cities[i]);
+                      })
+                  );
                 },
               ),
             );
