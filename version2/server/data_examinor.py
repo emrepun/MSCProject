@@ -5,21 +5,26 @@ from collections import Counter
 
 df = pd.read_csv('richCityData.csv')
 
-merged_string = ''
+class DataExaminor:
+    def __init__(self):
+        print("examinor initialized")
 
-for index, row in df.iterrows():
-    merged_string += row['description']
+    @staticmethod
+    def top_25_words():
+        merged_string = ''
 
-merged_words = re.compile(r"[\w']+").findall(merged_string)
+        for index, row in df.iterrows():
+            merged_string += row['description']
 
-counted_words = Counter(merged_words)
+        merged_words = re.compile(r"[\w']+").findall(merged_string)
 
-removal_list = []
+        counted_words = Counter(merged_words)
 
-#Words manually examined and top 25 words are identified as non contextual.
-for i in counted_words.most_common(25):
-    print(i[0])
-    removal_list.append(i[0])
+        removal_list = []
 
-print(removal_list)
-print(type(removal_list))
+        #Words manually examined and top 25 words are identified as non contextual.
+        for i in counted_words.most_common(25):
+            print(i[0])
+            removal_list.append(i[0])
+
+        return removal_list
