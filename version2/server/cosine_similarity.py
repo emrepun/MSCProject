@@ -1,5 +1,6 @@
 import re, math
 from collections import Counter
+from data_examinor import DataExaminor
 
 class CosineSimilarity:
     def __init__(self):
@@ -7,7 +8,8 @@ class CosineSimilarity:
 
     @staticmethod
     def remove_ignored_words(vector):
-        ignored_words = ['the', 'and', 'of', 'you', 'for', 'in', 'it', 'a', 'or', 'is']
+        #get non-contextual words
+        ignored_words = DataExaminor.top_25_words()
 
         for word in list(vector):
             if word in ignored_words:

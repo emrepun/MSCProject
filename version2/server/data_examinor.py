@@ -24,7 +24,6 @@ class DataExaminor:
 
         #Words manually examined and top 25 words are identified as non contextual.
         for i in counted_words.most_common(25):
-            print(i[0])
             removal_list.append(i[0])
 
         return removal_list
