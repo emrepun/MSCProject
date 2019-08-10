@@ -3,8 +3,8 @@ import pandas as pd
 
 #run DataGenerator.py first if the file is missing.
 
-#data = pd.read_csv('myDataNumericRandomized.csv')
-data = pd.read_csv('normalDistributionData.csv')
+data = pd.read_csv('myDataNumericRandomized.csv')
+#data = pd.read_csv('normalDistributionData.csv')
 
 X = data.drop('destination', axis=1)
 y = data['destination']

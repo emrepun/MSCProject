@@ -23,7 +23,7 @@ import sys
 #   2 = winter
 #   3 = summer
 
-sample_count = 1
+sample_count = 1000
 
 #update sample count with passed argument.
 if len(sys.argv) == 2:

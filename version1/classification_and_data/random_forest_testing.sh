@@ -2,7 +2,8 @@
 
 echo initialized.
 
-for sample_count in 100 250 500 1000 3000 6000 10000
+#for sample_count in 100 250 500 1000 3000 6000 10000
+for sample_count in 50000 100000 500000 1000000
 do
   python3 header.py $sample_count
   for j in {1..10}

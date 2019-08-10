@@ -2,3 +2,4 @@
 *.csv
 *.doc
 version1/classification_and_data/neural_network_epoch_detail_terminal_output
+*.pkl

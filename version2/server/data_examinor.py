@@ -1,0 +1,25 @@
+import numpy as np
+import pandas as pd
+import re, math
+from collections import Counter
+
+df = pd.read_csv('richCityData.csv')
+
+merged_string = ''
+
+for index, row in df.iterrows():
+    merged_string += row['description']
+
+merged_words = re.compile(r"[\w']+").findall(merged_string)
+
+counted_words = Counter(merged_words)
+
+removal_list = []
+
+#Words manually examined and top 25 words are identified as non contextual.
+for i in counted_words.most_common(25):
+    print(i[0])
+    removal_list.append(i[0])
+
+print(removal_list)
+print(type(removal_list))
