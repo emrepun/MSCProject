@@ -46,7 +46,7 @@ Widget _myListView(BuildContext context) {
     new Option("Beach and Sun",
         "assets/images/beach_summer.jpg",
         "beach beaches park nature holiday sea seaside sand sunshine sun sunny"),
-    new Option("Good Restaurants and Nightlife.",
+    new Option("Nightlife and Party.",
         "assets/images/nightlife_fun_party.jpg",
         "nightclub nightclubs nightlife bar bars pub pubs party beer")
   ];
