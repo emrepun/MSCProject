@@ -11,3 +11,5 @@ with a trained model.
 Recommender System with Cosine-Similarity.
 
 Application asks for a trip type and makes recommendations by calculating cosine similarity between the type and the city description.
+
+Hotel_Reviews.csv file can be downloaded from <a href="https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe"> here </a>
