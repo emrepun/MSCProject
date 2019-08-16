@@ -11,7 +11,7 @@ dataset = pd.read_csv('reviews.csv')
 sample = 'It was a great experience we were so happy.'
 
 def clean_review(review):
-    review = re.sub('[^a-zA-Z]', '', review)
+    #review = re.sub('[^a-zA-Z]', '', review)
     review = review.lower()
     review = review.split()
 
@@ -57,7 +57,7 @@ pickle.dump(model, open('reviewClassifier.pkl','wb'))
 
 words = cv.vocabulary_
 length = len(words)
-print(words)
+#print(words)
 
 #sample = 'We are happy to stay in this hotel it was great'
 #sample = 'This was unpleasent and horrible experience hotel was dirt i hate it'
@@ -91,13 +91,33 @@ positives = [
 my_trial_positives = [
                      "We had a great time it was very nice highly recommend",
                      "Everything was perfect superb places to visit and experience",
-                     ""
+                     "It was a pleasent experience we enjoyed our stay in London a great city with a lot of activities",
+                     "Very vivid city a lot of friendly people and great nightlife",
+                     "Great old town and many small shops around the city where you can find interesting beautiful products for very cheap prices",
+                     "The weather was great and the beaches were both cheap and beautiful highly recommend",
+                     "Amazing architecture and lots of museum Saint Petersburg was is a great choice for cultural trips",
+                     "We went there for my friends birthday and had a great time in a variety of bars it was superb",
+                     "Even though the places were expensive overall we were satisfied and happy with our trip",
+                     "Absolutely amazing will visit this city again for sure"
 
+                     ]
+
+my_trial_negatives = [
+                     "We had a bad time it was really awful",
+                     "Everything was horrible people were unfriendly and disrespectful",
+                     "It was an unpleasent experience we disliked our stay it was rather boring",
+                     "Even though there were some beautiful beaches and great activities the prices were expensive and we did not like it overall",
+                     "It was a dangerous city with a lot of sketch people we had a very bad experience",
+                     "It was bad",
+                     "Nothing to do the weather was bad and people were staring at us felt unsafe",
+                     "Beaches were trash did not like it at all also very expensive",
+                     "It was boring will never come here again",
+                     "Food was nice but the city was boring it was below average for us"
                      ]
 
 prediction_samples = []
 
-for sample in positives:
+for sample in my_trial_positives:
     big = [0] * length
     clean_sample = clean_review(sample)
     clean_words = re.sub("[^\w]", " ", clean_sample).split()
@@ -112,3 +132,21 @@ for sample in positives:
 
 prd = model.predict(prediction_samples)
 print(prd)
+
+prediction_samples = []
+
+for sample in my_trial_negatives:
+    big = [0] * length
+    clean_sample = clean_review(sample)
+    clean_words = re.sub("[^\w]", " ", clean_sample).split()
+
+    for i in clean_words:
+        if i in words:
+            index = words[i]
+            big[index] += 1
+
+    #print(big)
+    prediction_samples.append(big)
+
+prd2 = model.predict(prediction_samples)
+print(prd2)
