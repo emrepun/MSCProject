@@ -1,5 +1,3 @@
-import numpy as np
-import pandas as pd
 from flask import Flask, request, abort
 from cosine_similarity import CosineSimilarity
 from rating_extractor import RatingExtractor
@@ -8,8 +6,6 @@ import operator
 import json
 
 app = Flask(__name__)
-
-df = pd.read_csv('richCityData.csv')
 
 @app.route('/api',methods=['POST'])
 def recommend_places():
