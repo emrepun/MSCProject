@@ -24,7 +24,8 @@ def recommend_places():
         msg = 'invalid format'
         return msg, code
 
-    recommendations = RecommenderEngine.get_recommendations(keywords)
+    #recommendations = RecommenderEngine.get_recommendations(keywords)
+    recommendations = RecommenderEngine.get_rating_recommendations(keywords)
 
     return recommendations
 
