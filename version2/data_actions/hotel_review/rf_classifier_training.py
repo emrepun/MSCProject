@@ -5,6 +5,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 import pickle
+import json
 
 dataset = pd.read_csv('reviews.csv')
 
@@ -51,12 +52,21 @@ model = RandomForestClassifier(n_estimators = 501,
 model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
+words = cv.vocabulary_
+words_for_json = {}
+length = len(words)
+
+for k, v in words.items():
+    words_for_json[k] = int(v)
+
+
 print('Score: ', model.score(X_test, y_test))
 
 pickle.dump(model, open('reviewClassifier.pkl','wb'))
+with open('word_feature_space.json', 'w') as fp:
+    json.dump(words_for_json, fp)
 
-words = cv.vocabulary_
-length = len(words)
+
 #print(words)
 
 #sample = 'We are happy to stay in this hotel it was great'
