@@ -30,5 +30,22 @@ class RatingExtractor:
 
             return val * M
 
+    @staticmethod
+    def get_rating_with_count_and_reviews(r, rc, pf, bf):
+        if r > 10 or r < 0:
+            return None
+        else:
+            positive_diff = (10 - r) / 2
+            positive_rating = r + positive_diff
+
+            negative_diff = r / 2
+            negative_rating = r - negative_diff
+
+            updated_rating = ((r * rc) + (pf * positive_rating) + (bf * negative_rating)) / (rc + pf + bf)
+
+            return RatingExtractor.get_rating_weight_with_quantity(r,rc,250000,10)
+
+
+
 #print(RatingExtractor.get_rating_weight_with_quantity(rating = 8.5, c = 1000, T = 100 ,q = 10))
 #print(RatingExtractor.get_rating_weight_no_quantity(rating = 8.5, q = 10))
