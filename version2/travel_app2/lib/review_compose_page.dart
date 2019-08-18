@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:io';
+import 'package:travel_app2/review_feedback.dart';
 
 class ReviewComposePage extends StatelessWidget {
 
   TextEditingController reviewController = TextEditingController();
 
-  void postReview(review) async {
+  void postReview(review, context) async {
     final body = <String, dynamic> {'review': review};
     final url = 'http://localhost:5000/api/submit_review';
     HttpClient httpClient = new HttpClient();
@@ -18,6 +19,20 @@ class ReviewComposePage extends StatelessWidget {
 
     final outcome = json.decode(reply)['outcome'];
     print(outcome);
+
+    var feedback = '';
+
+    if (outcome == 1) {
+      feedback = 'Your feedback was positive!';
+    } else {
+      feedback = 'Your feedback was negative!';
+    }
+
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) {
+        return ReviewFeedbackPage(feedback);
+      })
+    );
   }
 
   @override
@@ -59,7 +74,7 @@ class ReviewComposePage extends StatelessWidget {
                   child: Text("Submit Review",
                     style: TextStyle(color: Colors.white),),
                   onPressed: () {
-                    postReview(reviewController.text);
+                    postReview(reviewController.text, context);
                     print("Review Submitted.");
                   },
                 ),
