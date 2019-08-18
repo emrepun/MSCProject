@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app2/city.dart';
+//import 'package:travel_app2/city.dart';
+import 'package:travel_app2/review_compose_page.dart';
 
 
 class DestinationPage extends StatelessWidget {
@@ -47,9 +48,14 @@ class DestinationPage extends StatelessWidget {
               color: Colors.cyan,
               child: FlatButton(
                 padding: EdgeInsets.all(16.0),
-                child: Text("Explore places",
+                child: Text("Write a review",
                   style: TextStyle(color: Colors.white),),
                 onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) {
+                      return ReviewComposePage();
+                    })
+                  );
                   //TODO: Implement fetching interesting places.
                 },
               ),
