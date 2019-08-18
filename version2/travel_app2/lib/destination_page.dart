@@ -56,7 +56,6 @@ class DestinationPage extends StatelessWidget {
                       return ReviewComposePage();
                     })
                   );
-                  //TODO: Implement fetching interesting places.
                 },
               ),
             ),
