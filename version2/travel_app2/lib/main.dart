@@ -52,7 +52,7 @@ Widget _myListView(BuildContext context) {
   ];
 
   void postOption({Map body}) async {
-    final url = 'http://localhost:5000/api';
+    final url = 'http://localhost:5000/api/recommendations';
     HttpClient httpClient = new HttpClient();
     HttpClientRequest request = await httpClient.postUrl(Uri.parse(url));
     request.add(utf8.encode(json.encode(body)));
