@@ -43,4 +43,8 @@ class ReviewHandler:
                 index = self.words[i]
                 incoming[index] += 1
 
-        return self.model.predict([incoming])
+        outcome = self.model.predict([incoming])
+
+        result = {'outcome': int(outcome[0])}
+
+        return json.dumps(result)

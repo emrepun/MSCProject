@@ -2,12 +2,13 @@ from flask import Flask, request, abort
 from cosine_similarity import CosineSimilarity
 from rating_extractor import RatingExtractor
 from recommender_engine import RecommenderEngine
+from review_handler import ReviewHandler
 import operator
 import json
 
 app = Flask(__name__)
 
-@app.route('/api',methods=['POST'])
+@app.route('/api/recommendations',methods=['POST'])
 def recommend_places():
     data = request.get_json(force=True)
 
@@ -24,6 +25,20 @@ def recommend_places():
     recommendations = RecommenderEngine.get_rating_recommendations(keywords)
 
     return recommendations
+
+@app.route('/api/submit_review',methods=['POST'])
+def review_received():
+    data = request.get_json(force=True)
+    review = ''
+    try:
+        review = data['review']
+    except:
+        code = 400
+        msg = 'invalid review'
+        return msg, code
+
+    handler = ReviewHandler()
+    return handler.return_review_outcome(review)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
