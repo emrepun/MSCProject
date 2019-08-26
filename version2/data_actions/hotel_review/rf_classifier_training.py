@@ -7,12 +7,14 @@ from nltk.stem.porter import PorterStemmer
 import pickle
 import json
 
+#if it crashes, you need to go to root folder of "version2"
+#then cd data_actions/hotel_review and run "python3 hotel_review_pre_preocessor.py"
+#after that copy reviews.csv to version2/server/
 dataset = pd.read_csv('reviews.csv')
 
 sample = 'It was a great experience we were so happy.'
 
 def clean_review(review):
-    #review = re.sub('[^a-zA-Z]', '', review)
     review = review.lower()
     review = review.split()
 

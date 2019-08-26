@@ -10,6 +10,10 @@ class ReviewHandler:
 
     words = {}
 
+    #if it crashes go to root folder "version2"
+    #then run "python3 rf_classifier_training.py"
+    #copy reviewClassifier.pkl to version2/server/
+    #copy word_feature_space.json to version2/server/
     model = pickle.load(open('reviewClassifier.pkl','rb'))
 
     def __init__(self):
@@ -19,6 +23,7 @@ class ReviewHandler:
             print(len(self.words))
         print('low')
 
+    #clean review get word roots, lowercase, split them by words and etc.
     def clean_review(self, review):
         review = review.lower()
         review = review.split()
@@ -32,6 +37,7 @@ class ReviewHandler:
 
         return review
 
+    #return if the review was positive or negative.
     def return_review_outcome(self, review):
         length = len(self.words)
         incoming = [0] * length

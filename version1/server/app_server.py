@@ -4,6 +4,11 @@ from flask import Flask, request, jsonify
 import pickle
 
 app = Flask(__name__)
+
+#if it crashes go to root folder "version1"
+#then cd classification_and_data
+#run "python3 RandomForestClassifier.py"
+#copy randomForestModel.pkl to version1/server/
 model = pickle.load(open('randomForestModel.pkl','rb'))
 
 @app.route('/api',methods=['POST'])
@@ -29,11 +34,6 @@ def predict():
     output = {'city': int(prediction[0])}
     print(prediction)
     return jsonify(output)
-    #return 'se'
-
-    #prediction = model.predict([[np.array(data['exp'])]])
-    #output = prediction[0]
-    #return jsonify(output)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

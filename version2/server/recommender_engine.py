@@ -18,8 +18,6 @@ class RecommenderEngine:
     def get_recommendations(keywords):
         df = pd.read_csv('richCityData.csv')
 
-        #keywords = "nightclub nightclubs nightlife bar bars pub pubs party beer"
-
         score_dict = {}
 
         for index, row in df.iterrows():
@@ -32,13 +30,10 @@ class RecommenderEngine:
 
         #create an empty results data frame.
         resultDF = pd.DataFrame(columns=('city', 'popularity', 'description', 'image'))
-        #ratings = [8.5, 3.4, 9.5, 2.3, 7.0]
+
         #get highest scored 5 cities.
         for i in sorted_scores:
             print(i[0], i[1])
-            #r = ratings[counter]
-            #rating = RatingExtractor.get_rating_weight_no_quantity(r, 10)
-            #print("score with rating affect", r ,RecommenderEngine.calculate_score_from(cs = i[1], r = rating))
             resultDF = resultDF.append({'city': df.iloc[i[0]]['city'], 'popularity': df.iloc[i[0]]['popularity'], 'description': df.iloc[i[0]]['description'], 'image': df.iloc[i[0]]['image']}, ignore_index=True)
             counter += 1
 

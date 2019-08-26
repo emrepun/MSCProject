@@ -3,6 +3,9 @@ import pandas as pd
 
 #run DataGenerator.py first if the file is missing.
 
+#if it crashes:
+#run DataGenerator.py for uniform distribution
+#run NormalDistributionGenerator.py for gaussian distribution
 data = pd.read_csv('myDataNumericRandomized.csv')
 #data = pd.read_csv('normalDistributionData.csv')
 
@@ -24,26 +27,9 @@ model.fit(Xtrain, ytrain)
 import pickle
 pickle.dump(model, open('randomForestModel.pkl','wb'))
 
-#print('Score: ', model.score(Xtest, ytest))
 
+#For testing purposes, writes results.
 #document = open("random_forest_results.doc", "a+")
 document = open("normal_distribution_random_forest_results.doc", "a+")
 document.write("Score: " + str(model.score(Xtest, ytest)) + "\r\n")
 document.close()
-
-#preds = model.predict(Xtest)
-#dog = model.predict([24,2200,0])
-# print(Xtest.shape)
-# print(type(Xtest))
-#print(Xtest)
-#print(preds.shape)
-#print(preds)
-# dog = model.predict(Xtest[10:11])
-# #big = [['age', 'budge', 'season'], [50, 4767, 1]]
-# a = [25, 4767, 1]
-# big = pd.DataFrame([a], columns=['age', 'budget', 'season'])
-# print(Xtest[10:11])
-# dog2 = model.predict(big)
-# print(big)
-# print(dog)
-# print(dog2)

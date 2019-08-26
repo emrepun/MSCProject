@@ -10,7 +10,8 @@ from tensorflow import feature_column
 from tensorflow.keras import layers
 from sklearn.model_selection import train_test_split
 
-#run DataGenerator.py first if the file is missing.
+#run DataGenerator.py first if the file is missing for uniform distribution.
+#run NormalDistributionGenerator.py first for gaussian distribution
 #data = pd.read_csv('myDataNumericRandomized.csv')
 data = pd.read_csv('normalDistributionData.csv')
 
