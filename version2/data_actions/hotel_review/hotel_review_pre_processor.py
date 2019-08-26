@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 
 # read data
+#download file: https://www.kaggle.com/jiashenliu/515k-hotel-reviews-data-in-europe
 reviews_df = pd.read_csv("Hotel_Reviews.csv")
 
 #only get 1 percent of data. because the data is huge
