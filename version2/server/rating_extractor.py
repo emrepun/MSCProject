@@ -55,4 +55,4 @@ class RatingExtractor:
 
             updated_rating = ((r * rc) + (pf * positive_rating) + (bf * negative_rating)) / (rc + pf + bf)
 
-            return RatingExtractor.get_rating_weight_with_quantity(r,rc,250000,10)
+            return RatingExtractor.get_rating_weight_with_quantity(updated_rating,rc,250000,100)
