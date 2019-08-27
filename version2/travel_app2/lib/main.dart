@@ -52,6 +52,9 @@ Widget _myListView(BuildContext context) {
   ];
 
   void postOption({Map body}) async {
+    // localhost for iOS Simulator.
+    // 10.0.2.2 for Android Simulator.
+    // Its just the way debugging works for both simulators.
     final url = 'http://localhost:5000/api/recommendations';
     HttpClient httpClient = new HttpClient();
     HttpClientRequest request = await httpClient.postUrl(Uri.parse(url));

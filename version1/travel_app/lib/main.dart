@@ -42,8 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
       seasonController.text
     );
 
+    // localhost for iOS Simulator.
+    // 10.0.2.2 for Android Simulator.
+    // Its just the way debugging works for both simulators.
     postData('http://localhost:5000/api', body: newData.toJson());
-    print('lows');
   }
 
   void postData(String url, {Map body}) async {

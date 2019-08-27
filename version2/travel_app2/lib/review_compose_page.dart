@@ -9,6 +9,9 @@ class ReviewComposePage extends StatelessWidget {
 
   void postReview(review, context) async {
     final body = <String, dynamic> {'review': review};
+    // localhost for iOS Simulator.
+    // 10.0.2.2 for Android Simulator.
+    // Its just the way debugging works for both simulators.
     final url = 'http://localhost:5000/api/submit_review';
     HttpClient httpClient = new HttpClient();
     HttpClientRequest request = await httpClient.postUrl(Uri.parse(url));
