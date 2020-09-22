@@ -11,6 +11,7 @@ app = Flask(__name__)
 #handle recommendation request.
 @app.route('/api/recommendations',methods=['POST'])
 def recommend_places():
+    print("recommend_places called")
     data = request.get_json(force=True)
 
     keywords = ''
